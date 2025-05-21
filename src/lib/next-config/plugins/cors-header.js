@@ -11,18 +11,7 @@ const corsHeaderPlugin = (nextConfig = {}) => {
     async headers() {
       const extendHeaders =
         typeof nextConfig.headers === 'function' ? await nextConfig.headers() : [];
-      return [
-        ...(await extendHeaders),
-        {
-          source: '/_next/:path*',
-          headers: [
-            {
-              key: 'Access-Control-Allow-Origin',
-              value: config.sitecoreApiHost.replace(/\/$/, ''),
-            },
-          ],
-        },
-      ];
+      return [...(await extendHeaders)];
     },
   });
 };

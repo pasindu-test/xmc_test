@@ -9,5 +9,4 @@ export interface JssConfig extends Record<string, string | undefined> {
   defaultLanguage?: string;
   graphQLEndpoint?: string;
   layoutServiceConfigurationName?: string;
-  publicUrl?: string;
 }
