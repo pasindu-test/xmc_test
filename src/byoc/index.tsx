@@ -3,7 +3,6 @@ import * as FEAAS from '@sitecore-feaas/clientside/react';
 import * as Events from '@sitecore-cloudsdk/events/browser';
 import '@sitecore/components/context';
 import dynamic from 'next/dynamic';
-//@ts-expect-error
 import config from 'temp/config';
 import {
   LayoutServicePageState,
