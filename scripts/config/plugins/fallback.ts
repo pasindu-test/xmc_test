@@ -1,5 +1,6 @@
 import { JssConfig } from 'lib/config';
 import { ConfigPlugin } from '..';
+import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 
 /**
  * This config will set fallback values for properties that were left empty
@@ -10,9 +11,11 @@ class FallbackPlugin implements ConfigPlugin {
   order = 100;
 
   async exec(config: JssConfig) {
+    const publicUrlFallback = (process.env.NODE_ENV !== 'production' ? getPublicUrl() : '');
     return Object.assign({}, config, {
       defaultLanguage: config.defaultLanguage || 'en',
       layoutServiceConfigurationName: config.layoutServiceConfigurationName || 'default',
+      publicUrl: config.publicUrl || publicUrlFallback,
     });
   }
 }
