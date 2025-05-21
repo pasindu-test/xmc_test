@@ -11,7 +11,6 @@ class FallbackPlugin implements ConfigPlugin {
   order = 100;
 
   async exec(config: JssConfig) {
-    const publicUrlFallback = process.env.NODE_ENV !== 'production' ? getPublicUrl() : '';
     return Object.assign({}, config, {
       defaultLanguage: config.defaultLanguage || 'en',
       sitecoreApiKey: config.sitecoreApiKey || 'no-api-key-set',
